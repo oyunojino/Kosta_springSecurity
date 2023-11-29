@@ -40,6 +40,8 @@ public class SpringConfig {
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//    # RestApi 테스트 할 때만 사용
+//    http.csrf(csrf -> csrf.disable());
     http.authorizeRequests()
         .requestMatchers("/login", "/account/new").permitAll()
         .anyRequest().authenticated()
