@@ -51,7 +51,8 @@ public class SpringConfig {
             .usernameParameter("username")
             .passwordParameter("password")
             .defaultSuccessUrl("/home")
-        );
+        )
+        .exceptionHandling(exception -> exception.accessDeniedPage("/access-denied"));
 
     return http.build();
   }

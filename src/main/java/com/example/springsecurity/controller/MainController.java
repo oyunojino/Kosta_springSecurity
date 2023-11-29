@@ -34,4 +34,14 @@ public class MainController {
     String name = principal.getName();
     return "로그인할 사용자만 접속 가능합니다. " + name;
   }
+
+  @GetMapping("/access-denied")
+  public String accessDenied(Model model, Principal principal) {
+    String name = "";
+    if(principal != null) {
+      name =principal.getName();
+    }
+    model.addAttribute("name",name);
+    return "access-denied";
+  }
 }
