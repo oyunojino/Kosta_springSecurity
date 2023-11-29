@@ -44,6 +44,7 @@ public class SpringConfig {
 //    http.csrf(csrf -> csrf.disable());
     http.authorizeRequests()
         .requestMatchers("/login", "/account/new").permitAll()
+        .requestMatchers("/products").hasRole("ADMIN")
         .anyRequest().authenticated()
         .and()
         .formLogin(login -> login.loginPage("/login")
@@ -54,6 +55,7 @@ public class SpringConfig {
 
     return http.build();
   }
+
 
 
 }
